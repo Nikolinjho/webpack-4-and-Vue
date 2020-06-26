@@ -57,14 +57,15 @@
     "xml-loader": "^1.2.1",
     "postcss-conditionals": "^2.1.0",
     "postcss-inline-svg": "^4.1.0",
-    "postcss-simple-vars": "^5.0.2"
-  },
-  "dependencies": {
+    "unused-files-webpack-plugin": "^3.4.0",
+    "postcss-simple-vars": "^5.0.2",
     "@babel/core": "^7.10.1",
     "@babel/polyfill": "^7.10.1",
     "@babel/preset-env": "^7.10.1",
-    "babel-loader": "^8.1.0",
-    "jquery": "^3.5.1",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "babel-loader": "^8.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
   }
 }
