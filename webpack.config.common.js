@@ -1,10 +1,11 @@
 const path = require("path");
+const webpack = require('webpack');
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-
+const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === "development"
 const isProd = !isDev;
@@ -31,6 +32,7 @@ const webpackConfig = {
         }
     },
     plugins: [
+        new UnusedFilesWebpackPlugin(),
         new HTMLWebpackPlugin({
             // title: "kran", без template
             template: "index.html",
@@ -44,6 +46,11 @@ const webpackConfig = {
         new MiniCssExtractPlugin({
             filename: filename("css")
         }),
+        new webpack.HashedModuleIdsPlugin({ 
+            hashFunction: 'md4', 
+            hashDigest: 'base64', 
+            hashDigestLength: 8,
+        }), 
 
         // new CopyWebpackPlugin({
         //     patterns: [
