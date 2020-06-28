@@ -56,7 +56,7 @@ const webpackConfig = {
             hashDigest: 'base64', 
             hashDigestLength: 8,
         }), 
-        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),   
         // new CopyWebpackPlugin({
         //     patterns: [
         //         {
