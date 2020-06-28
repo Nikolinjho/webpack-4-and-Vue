@@ -18,6 +18,7 @@
   "devDependencies": {
     "autoprefixer": "^9.8.0",
     "clean-webpack-plugin": "^3.0.0",
+    "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.0.1",
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
@@ -59,11 +60,13 @@
     "postcss-inline-svg": "^4.1.0",
     "unused-files-webpack-plugin": "^3.4.0",
     "postcss-simple-vars": "^5.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "@babel/core": "^7.10.1",
     "@babel/polyfill": "^7.10.1",
     "@babel/preset-env": "^7.10.1",
     "vuex": "^3.4.0",
-    "babel-loader": "^8.1.0"
+    "babel-loader": "^8.1.0",
+    "compression-webpack-plugin": "^4.0.0"
   },
   "dependencies": {
     "jquery": "^3.5.1",

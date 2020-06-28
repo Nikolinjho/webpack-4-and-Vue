@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
-
+const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
 
 
 const isDev = process.env.NODE_ENV === "development"
@@ -48,12 +48,15 @@ const webpackConfig = {
         new MiniCssExtractPlugin({
             filename: filename("css")
         }),
+        new DuplicatePackageCheckerPlugin({
+            verbose: true,
+        }),
         new webpack.HashedModuleIdsPlugin({ 
             hashFunction: 'md4', 
             hashDigest: 'base64', 
             hashDigestLength: 8,
         }), 
-
+        new webpack.NoEmitOnErrorsPlugin(),
         // new CopyWebpackPlugin({
         //     patterns: [
         //         {
