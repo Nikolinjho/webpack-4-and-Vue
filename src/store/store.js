@@ -7,3 +7,5 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
    
 })
+
+export default store
