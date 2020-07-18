@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin")
 const TerserWebpackPlugin = require("terser-webpack-plugin")
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin           = require('uglifyjs-webpack-plugin');
 const CompressionPlugin        = require('compression-webpack-plugin');
 
@@ -35,22 +34,22 @@ const webpackConfig = merge(commonConfig, {
                         ],
                 }
             }),
-            new UglifyJsPlugin({ 
-                uglifyOptions: {
-                    mangle: true,
-                    output: {
-                        comments: false
-                    }
-                },
-                parallel: 4,
+        //     new UglifyJsPlugin({ 
+        //         uglifyOptions: {
+        //             mangle: true,
+        //             output: {
+        //                 comments: false
+        //             }
+        //         },
+        //         parallel: 4,
+        //         sourceMap: !isProd,
+        //         exclude: [/\.min\.js$/gi]
+        //    }),
+            new TerserWebpackPlugin({
                 sourceMap: !isProd,
-                exclude: [/\.min\.js$/gi]
-           }),
-            // new TerserWebpackPlugin({
-            //     sourceMap: !isProd,
-            //     cache: true,
-            //     parallel: true,
-            // }),
+                cache: true,
+                parallel: true,
+            }),
               // new CompressionPlugin({
             //     filename: "[path].gz[query]",
             //     algorithm: "gzip",
