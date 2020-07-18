@@ -38,7 +38,6 @@ const webpackConfig = {
       ".vue",
     ],
     alias: {
-
       "@": path.resolve(__dirname, "src"),
     },
   },
@@ -129,6 +128,7 @@ const webpackConfig = {
               name: "[name].[ext]",
               outputPath: "images",
               context: "images",
+              esModule: false,
             },
           },
           // 'url-loader?limit=8192',
