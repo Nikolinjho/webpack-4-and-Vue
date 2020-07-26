@@ -31,7 +31,7 @@ const webpackConfig = merge(commonConfig, {
         hot: true,
         open: true,
         overlay: true,
-        port: 3030,
+        port: 3001,
         stats: {
             normal: true
         }
