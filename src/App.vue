@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-
+    <div>app</div>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="postcss" scoped>
 * {
   box-sizing: border-box;
 }
@@ -30,6 +30,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   color: black;
   margin-top: 30px;
+  div{
+    font-size: 12px;
+  }
 }
 
 .container {
