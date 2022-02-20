@@ -1,9 +1,8 @@
+require('dotenv').config(); // read and write env vars
 const path = require('path');
 const webpack = require('webpack');
-require('dotenv').config(); // read and write env vars
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
@@ -93,7 +92,29 @@ const webpackConfig = {
                     },
                 },
             },
-
+            {
+              test: /\.postcss$/,
+              use: [
+                {
+                  loader: 'vue-style-loader',
+                },
+                {
+                  loader: 'css-loader',
+                  options: {
+                    sourceMap: isDev,
+                  },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    sourceMap: isDev,
+                    config: {
+                      path: './postcss.config.js',
+                    },
+                  },
+                },
+              ],
+            },
             {
                 test: /\.css$/,
                 use: [
